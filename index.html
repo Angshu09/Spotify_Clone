@@ -9,20 +9,62 @@
 </head>
 <body>
     <div class="container flex">
-        <div class="left border">
-            <div class="logo"><img src="resources/logo.svg" alt="logo"></div>
-            <div class="home">
-                <ul>
-                    <li class="flex"><img src="resources/home.svg" alt="home">Home</li>
-                    <li class="flex"><img src="resources/search.svg" alt="search">Search</li>
+        <div class="left padding-6px">
+            <div class="home radius bg-grey">
+                <ul class="flex">
+                    <li><img class="logo" src="resources/spotifyLogo.png" alt="logo"></li>
+                    <li class="flex"><i class="fa-solid fa-house"></i>Home</li>
+                    <li class="flex"><i class="fa-solid fa-magnifying-glass"></i>Search</li>
                 </ul>
             </div>
-            <div class="library"></div>
+            <div class="library radius bg-grey padding-6px">
+                <div class="heading flex border">
+                    <i class="fa-brands fa-itunes-note"></i>
+                    <p>Your Library</p>
+                </div>
+                <div class="heading-footer flex border">
+                    <div><a href="https://www.spotify.com/in-en/legal/"><span>Legal</span></a></div>
+                    <div><a href="https://www.spotify.com/in-en/safetyandprivacy/"><span>Safety &amp; Privacy Center</span></a></div>
+                    <div><a href="https://www.spotify.com/in-en/legal/privacy-policy/"><span>Privacy Policy</span></a></div>
+                    <div><a href="https://www.spotify.com/in-en/legal/cookies-policy/"><span>Cookies</span></a></div>
+                    <div><a href="https://www.spotify.com/in-en/legal/privacy-policy/#s3"><span>About Ads</span></a></div>
+                    <div><a href="https://www.spotify.com/in-en/accessibility/"><span>Accessibility</span></a></div>
+                </div>
+            </div>
         </div>
-        <div class="right border">
-            jehb
+
+        <div class="right padding-6px">
+            <div class="header bg-grey radius flex">
+                <div class="nav flex">
+                    <i class="fa-solid fa-angle-left"></i>
+                    <i class="fa-solid fa-angle-right"></i>
+                </div>
+                <div class="buttons flex">
+                    <button class="signup">Sign Up</button>
+                    <button class="login">Log In</button>
+                </div>
+            </div>
+
+            <div class="playlist bg-grey radius">
+                <h2>Spotify playlist</h2>
+                <div class="card-container flex">
+                    <div class="card flex">
+                        <img src="resources/spotifyCard1.jpg" alt="card 1">
+                        <h3>Dinner With Friends</h3>
+                        <p>The perfect soundtrack to those long nights over dinner</p>
+                    </div>
+
+                    <div class="card flex">
+                        <img src="resources/spotifyCard1.jpg" alt="card 1">
+                        <h3>Dinner With Friends</h3>
+                        <p>The perfect soundtrack to those long nights over dinner</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    
+
+
+    <script src="https://kit.fontawesome.com/2795d8c0e9.js" crossorigin="anonymous"></script>
 </body>
 </html>
