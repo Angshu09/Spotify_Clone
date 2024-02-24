@@ -19,6 +19,7 @@ body{
 
 .right{
     width: 75vw;
+    position: relative;
 }
 
 .home{
@@ -44,22 +45,23 @@ body{
 }
 
 .library{
-    min-height: 70vh;
     position: relative;
+    height: 70vh;
 }
 
 .heading{
     gap: 17px;
-    padding: 20px;
+    padding: 11px;
     font-weight: 500;
 }
 
 .heading-footer{
     font-size: 10px;
-    position: absolute;
-    bottom: 0;
     gap: 12px;
     flex-wrap: wrap;
+    padding: 16px 0 5px 6px;
+    position: absolute;
+    bottom: 0;
 }
 
 .heading-footer a{
@@ -91,12 +93,27 @@ body{
     border: none;
     background: transparent;
     color: grey;
+    cursor: pointer;
+}
+
+.buttons .signup:hover{
+    font-size: 1.03rem;
+    color: white;
+    transition: 0.3s ease-in-out;
 }
 
 .buttons .login{
     padding: 15px 28px;
     border: none;
     border-radius: 28px;
+    cursor: pointer;
+}
+
+.buttons .login:hover{
+    background-color: #282828;
+    color: white;
+    font-size: 1.01rem;
+    transition: 0.3s ease-in-out;
 }
 
 .playlist{
@@ -108,6 +125,8 @@ body{
     margin-top: 14px;
     gap: 12px;
     flex-wrap: wrap;
+    max-height: 75vh;
+    overflow-y: scroll;
 }
 
 .card{
@@ -117,6 +136,7 @@ body{
     border-radius: 8px;
     flex-direction: column;
     gap: 9px;
+    position: relative;
 }
 
 .card img{
@@ -129,6 +149,82 @@ body{
     color: #b3b3b3;
     font-size: 13px;
 }
+
+.play{
+    width: 40px; 
+    height: 40px;
+    background-color: #1fdf64; 
+    border-radius: 50%;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    position: absolute;
+    right: 18px;
+    top: 141px;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.card:hover{
+    .play{
+        opacity: 100;
+    }
+}
+
+.playbar{
+    position: fixed;
+    bottom: 6px;
+    width: 74vw;
+    background-color: rgba(255, 255, 255, 0.361);
+    padding: 12px;
+    justify-content: center;
+    border-radius: 6px;
+}
+
+.songbuttons{
+    justify-content: center;
+    gap: 16px;
+    align-items: center;
+}
+
+.song-list{
+    height: 300px;
+    overflow: auto;
+}
+
+.song-list ul{
+    padding: 0 5px;  
+}
+
+.song-list ul li{
+    list-style: none;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 13px;
+    border: 1px solid white;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.song-info{
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.play-now{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.play-now span{
+    font-size: 11px;
+}
+
 
 
 

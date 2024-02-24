@@ -18,11 +18,27 @@
                 </ul>
             </div>
             <div class="library radius bg-grey padding-6px">
-                <div class="heading flex border">
+                <div class="heading flex">
                     <i class="fa-brands fa-itunes-note"></i>
                     <p>Your Library</p>
                 </div>
-                <div class="heading-footer flex border">
+
+                <div class="song-list">
+                    <ul>
+                       <li class="flex">
+                            <div class="song-info flex">
+                                <i class="fa-solid fa-headphones"></i>
+                                <div class="song-name">Song Name</div>
+                            </div>
+                            <div class="play-now">
+                                <span>Play Now</span>
+                                <i class="fa-regular fa-circle-play"></i>
+                            </div>
+                       </li>
+                    </ul>
+                </div>
+
+                <div class="heading-footer flex">
                     <div><a href="https://www.spotify.com/in-en/legal/"><span>Legal</span></a></div>
                     <div><a href="https://www.spotify.com/in-en/safetyandprivacy/"><span>Safety &amp; Privacy Center</span></a></div>
                     <div><a href="https://www.spotify.com/in-en/legal/privacy-policy/"><span>Privacy Policy</span></a></div>
@@ -49,22 +65,32 @@
                 <h2>Spotify playlist</h2>
                 <div class="card-container flex">
                     <div class="card flex">
+                        <div class="play"><i class="fa-solid fa-play black-play"></i></div>
                         <img src="resources/spotifyCard1.jpg" alt="card 1">
                         <h3>Dinner With Friends</h3>
                         <p>The perfect soundtrack to those long nights over dinner</p>
                     </div>
 
-                    <div class="card flex">
-                        <img src="resources/spotifyCard1.jpg" alt="card 1">
-                        <h3>Dinner With Friends</h3>
-                        <p>The perfect soundtrack to those long nights over dinner</p>
-                    </div>
+                    
                 </div>
+            </div>
+
+            <div class="playbar flex">
+
+                <div class="song-info"></div>
+
+                <div class="songbuttons flex">
+                    <i class="fa-solid fa-backward-step song-play-btn"></i>
+                    <i class="fa-solid fa-circle-play song-play-btn"></i>
+                    <i class="fa-solid fa-forward-step song-play-btn"></i>
+                </div>
+
+                <div class="song-time"></div>
             </div>
         </div>
     </div>
 
-
+    <script src="script.js"></script>
     <script src="https://kit.fontawesome.com/2795d8c0e9.js" crossorigin="anonymous"></script>
 </body>
 </html>
