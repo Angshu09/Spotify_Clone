@@ -25,16 +25,7 @@
 
                 <div class="song-list">
                     <ul>
-                       <li class="flex">
-                            <div class="song-info flex">
-                                <i class="fa-solid fa-headphones"></i>
-                                <div class="song-name">Song Name</div>
-                            </div>
-                            <div class="play-now">
-                                <span>Play Now</span>
-                                <i class="fa-regular fa-circle-play"></i>
-                            </div>
-                       </li>
+                       
                     </ul>
                 </div>
 
@@ -77,15 +68,21 @@
 
             <div class="playbar flex">
 
-                <div class="song-info"></div>
-
-                <div class="songbuttons flex">
-                    <i class="fa-solid fa-backward-step song-play-btn"></i>
-                    <i class="fa-solid fa-circle-play song-play-btn"></i>
-                    <i class="fa-solid fa-forward-step song-play-btn"></i>
+                <div class="seekbar">
+                    <div class="seek-circle"></div>
                 </div>
 
-                <div class="song-time"></div>
+                <div class="control-div">
+                    <div class="song-information"></div>
+
+                    <div class="songbuttons flex">
+                        <img src="resources/prev.svg" alt="previous" class="invert" id="previous">
+                        <img src="resources/play.svg" alt="play" class="invert" id="play">
+                        <img src="resources/next.svg" alt="next" class="invert" id="next">
+                    </div>
+
+                    <div class="song-time"></div>
+                </div>
             </div>
         </div>
     </div>

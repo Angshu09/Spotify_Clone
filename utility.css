@@ -24,8 +24,12 @@
 }
 
 .song-play-btn{
- color: black;
- font-size: 22px;
+ color: white;
+ font-size: 24px;
+}
+
+.invert{
+  filter: invert(1);
 }
 
 .fa-circle-play{
