@@ -239,12 +239,13 @@ body{
 }
 
 .seekbar{
-    height: 2px;
+    height: 4px;
     width: 98%;
     position: absolute;
     bottom: 5px;
     background: white;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .seek-circle{
@@ -254,7 +255,7 @@ body{
     border-radius: 50%;
     position: relative;
     left: 0%;
-    bottom: 222%;
+    bottom: 82%;
     transition: left 0.5s;
 }
 

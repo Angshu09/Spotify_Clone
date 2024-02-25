@@ -25,19 +25,22 @@ function secondsToMinSec(seconds) {
   }
   
 
-playMusic = (track)=>{
+playMusic = (track, pause=false)=>{
     currentSong.src = `/songs/${track}`;
-    currentSong.play();
-    play.src = 'resources/pause.svg'
-    document.querySelector('.song-information').innerHTML = `${track}`;
+    if(!pause){
+        currentSong.play();
+        play.src = 'resources/pause.svg'
+    }
+    document.querySelector('.song-information').innerHTML = decodeURI(track)
     document.querySelector('.song-time').innerHTML = "00.00/00.00";
 } 
 
 async function main(){
 
-
     // get songs and apped them into the playlist.
     let songs = await getSong();
+    playMusic(songs[0], true)
+
     let songUl = document.querySelector('.song-list').getElementsByTagName('ul')[0];
     for(const song of songs){
         songUl.innerHTML = songUl.innerHTML + `
@@ -79,7 +82,11 @@ async function main(){
     //Listen for time update events
     currentSong.addEventListener('timeupdate', function(){
       document.querySelector('.song-time').innerHTML = `${secondsToMinSec(currentSong.currentTime)}/${secondsToMinSec(currentSong.duration)}`;
+      document.querySelector('.seek-circle').style.left = (currentSong.currentTime / currentSong.duration) * 100 + "%";
+      console.log(currentSong.duration, currentSong.currentTime)
     })
+
+    
 }
 
 main();
