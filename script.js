@@ -1,4 +1,5 @@
 let currentSong = new Audio();
+let songs;
 
 async function getSong(){
     const dir = await fetch("http://127.0.0.1:5500/songs/");
@@ -17,6 +18,10 @@ async function getSong(){
 }
 
 function secondsToMinSec(seconds) {
+if(isNaN(seconds) || seconds < 0){
+    return "00:00";
+}
+
     const mins = Math.floor(seconds / 60);
     const secs = Math.floor(seconds % 60);
     const formattedMins = String(mins).padStart(2, '0');
@@ -32,13 +37,13 @@ playMusic = (track, pause=false)=>{
         play.src = 'resources/pause.svg'
     }
     document.querySelector('.song-information').innerHTML = decodeURI(track)
-    document.querySelector('.song-time').innerHTML = "00.00/00.00";
+    document.querySelector('.song-time').innerHTML = "00.00 / 00.00";
 } 
 
 async function main(){
 
     // get songs and apped them into the playlist.
-    let songs = await getSong();
+    songs = await getSong();
     playMusic(songs[0], true)
 
     let songUl = document.querySelector('.song-list').getElementsByTagName('ul')[0];
@@ -86,7 +91,42 @@ async function main(){
       console.log(currentSong.duration, currentSong.currentTime)
     })
 
-    
+
+    //Listen on seek bar click
+    document.querySelector('.seekbar').addEventListener('click', function(e){
+        let percent = (e.offsetX/e.target.getBoundingClientRect().width) * 100;
+        document.querySelector('.seek-circle').style.left = percent + "%";
+        currentSong.currentTime = (percent *  currentSong.duration) / 100;
+    })
+
+    //Add listener to hamburger menu
+    document.querySelector('.hamburger-icon').addEventListener('click', ()=>{
+        document.querySelector('.left').style.left = 0;
+    })  
+
+    //Add listener to close icon  
+    document.querySelector('.close-icon').addEventListener('click', ()=>{
+        document.querySelector('.left').style.left = '-200%';
+    })  
+
+
+    //Add listener to previous button
+    previous.addEventListener('click', ()=>{
+        let index = songs.indexOf(currentSong.src.split('/').slice(-1)[0]);
+        if((index-1) >= 0){
+            playMusic(songs[index-1]);
+        }
+    })
+
+    //Add listener to next button
+    next.addEventListener('click', ()=>{
+        currentSong.pause();
+        let index = songs.indexOf(currentSong.src.split('/').slice(-1)[0]);
+        if((index+1)  < songs.length){
+            playMusic(songs[index+1]);
+        }
+    })
+
 }
 
 main();
