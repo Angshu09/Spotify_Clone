@@ -18,7 +18,6 @@
 
     .hamburger-icon{
         display: block;
-        cursor: pointer;
     }
 
     .close-icon{
@@ -41,10 +40,40 @@
     .card{
         width: 96%;
     }
+
+    .card-container{
+        height: 65vh;
+    }
 }
 
 @media screen and (max-width: 480px){
     .song-sound-div{
         flex-direction: column;
     }
+
+}
+
+@media screen and (max-width: 366px){
+    .header{
+        padding: 12px 10px;
+        flex-direction: column;
+    }
+
+    .nav{
+        width: 100%;
+    }
+
+    .buttons{
+        width: 100%;
+    }
+
+    .playlist h1{
+        text-align: center;
+        margin: 0;
+    }
+
+    .card-container{
+        height: 50vh;
+    }
+
 }
