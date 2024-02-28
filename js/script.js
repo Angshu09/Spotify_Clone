@@ -39,7 +39,6 @@ async function getSong(folder){
             playMusic(e.querySelector('.song-name').innerHTML.trim());
             
         })
-        console.log(e.querySelector('.song-name').innerHTML);
     })
 
     return songs
@@ -78,8 +77,8 @@ async function displayAlbums(){
     let array = Array.from(anchor)
     for(let i=0; i<array.length; i++){
         let e = array[i];
-        if(array[i].href.includes('/songs/')){
-            let folderName = array[i].href.split('/').slice(-2)[1];
+        if(e.href.includes('/songs/') && !e.href.includes('.htaccess')){
+            let folderName = e.href.split('/').slice(-2)[1];
             const b = await fetch(`/songs/${folderName}/info.json`);
             const response = await b.json();
             document.querySelector('.card-container').innerHTML = document.querySelector('.card-container').innerHTML + `
@@ -96,7 +95,6 @@ async function displayAlbums(){
     //Load the playlist whenever the card is clicked
     Array.from(document.getElementsByClassName('card')).forEach(function(e){
         e.addEventListener('click', async function(item){
-            console.log(item.currentTarget)
             songs = await getSong(`songs/${item.currentTarget.dataset.folder}`)
             playMusic(songs[0])
         })
@@ -133,7 +131,6 @@ async function main(){
     currentSong.addEventListener('timeupdate', function(){
       document.querySelector('.song-time').innerHTML = `${secondsToMinSec(currentSong.currentTime)}/${secondsToMinSec(currentSong.duration)}`;
       document.querySelector('.seek-circle').style.left = (currentSong.currentTime / currentSong.duration) * 100 + "%";
-      console.log(currentSong.duration, currentSong.currentTime)
     })
 
 
