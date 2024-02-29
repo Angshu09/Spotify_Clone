@@ -74,32 +74,12 @@ async function displayAlbums(){
     const div = document.createElement('div');
     div.innerHTML = response;  
 
-    let ul = div.querySelector('ul')
-    let l = ul.querySelectorAll('a')
-    for(let i=0; i<l.length; i++){
-        if(l[i].href.includes('/songs/folder')){
-            console.log(l[i].href.split('/').slice(-1)[0]);
-            let folderName = l[i].href.split('/').slice(-1)[0];
-            const b = await fetch(`/songs/${folderName}/info.json`);
-            const response = await b.json();
-            document.querySelector('.card-container').innerHTML = document.querySelector('.card-container').innerHTML + `
-            <div data-folder="${folderName}" class="card flex">
-                <div class="play"><i class="fa-solid fa-play black-play"></i></div>
-                <img src="songs/${folderName}/cover.jpg">
-                <h3>${response.title}</h3>
-                <p>${response.description}</p>
-            </div>
-            `
-        }
-        
-    }
-
-    // let anchor = div.getElementsByTagName('a')
-    // let array = Array.from(anchor)
-    // for(let i=0; i<array.length; i++){
-    //     let e = array[i];
-    //     if(e.href.includes('/songs/folder') && !e.href.includes('.htaccess')){
-    //         let folderName = e.href.split('/').slice(-2)[1];
+    // let ul = div.querySelector('ul')
+    // let l = ul.querySelectorAll('a')
+    // for(let i=0; i<l.length; i++){
+    //     if(l[i].href.includes('/songs/folder')){
+    //         console.log(l[i].href.split('/').slice(-1)[0]);
+    //         let folderName = l[i].href.split('/').slice(-1)[0];
     //         const b = await fetch(`/songs/${folderName}/info.json`);
     //         const response = await b.json();
     //         document.querySelector('.card-container').innerHTML = document.querySelector('.card-container').innerHTML + `
@@ -111,7 +91,27 @@ async function displayAlbums(){
     //         </div>
     //         `
     //     }
+        
     // }
+
+    let anchor = div.getElementsByTagName('a')
+    let array = Array.from(anchor)
+    for(let i=0; i<array.length; i++){
+        let e = array[i];
+        if(e.href.includes('/songs/') && !e.href.includes('.htaccess')){
+            let folderName = e.href.split('/').slice(-2)[1];
+            const b = await fetch(`/songs/${folderName}/info.json`);
+            const response = await b.json();
+            document.querySelector('.card-container').innerHTML = document.querySelector('.card-container').innerHTML + `
+            <div data-folder="${folderName}" class="card flex">
+                <div class="play"><i class="fa-solid fa-play black-play"></i></div>
+                <img src="songs/${folderName}/cover.jpg">
+                <h3>${response.title}</h3>
+                <p>${response.description}</p>
+            </div>
+            `
+        }
+    }
 
     //Load the playlist whenever the card is clicked
     Array.from(document.getElementsByClassName('card')).forEach(function(e){
